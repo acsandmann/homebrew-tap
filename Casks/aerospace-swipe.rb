@@ -1,9 +1,9 @@
 cask "aerospace-swipe" do
-  version "0.0.4"
-  sha256 "4a146ab8d0af067f6f6130ee2aa9fba9822b7e19a1107069805988a2afe1f7f7"
+  version "0.0.5"
+  sha256 "dee32ec70b9b236fff654a8686b61b1d74660813bca41070b06cbbf055beb3da"
 
   url "https://github.com/acsandmann/aerospace-swipe/releases/download/v#{version}/AerospaceSwipe-#{version}.zip"
-  name "Aerospace Swipe"
+  name "aerospace-swipe"
   desc "Trackpad gesture support for AeroSpace window manager"
   homepage "https://github.com/acsandmann/aerospace-swipe"
 
