@@ -1,6 +1,6 @@
 cask "aerospace-swipe" do
-  version "1.0.0"  # This will be updated automatically
-  sha256 "SHA256_PLACEHOLDER"  # This will be calculated automatically
+  version "0.0.3"
+  sha256 "e7fe527b4430fc882daf0210442dc1f67bfbdbe1499b48e7b56fa6a7d229f23c"
 
   url "https://github.com/acsandmann/aerospace-swipe/releases/download/v#{version}/AerospaceSwipe-#{version}.zip"
   name "Aerospace Swipe"
@@ -12,7 +12,6 @@ cask "aerospace-swipe" do
   app "AerospaceSwipe.app"
 
   postflight do
-    # Set up the launch agent
     launch_agent_plist = "#{Dir.home}/Library/LaunchAgents/com.acsandmann.swipe.plist"
 
     plist_content = <<~EOS
@@ -30,16 +29,9 @@ cask "aerospace-swipe" do
         <true/>
         <key>KeepAlive</key>
         <true/>
-        <key>ProcessType</key>
-   		<string>Interactive</string>
-
-        <key>StandardOutPath</key>
-    	<string>/tmp/swipe.out</string>
-    	<key>StandardErrorPath</key>
-    	<string>/tmp/swipe.err</string>
       </dict>
       </plist>
-    EOS
+EOS
 
     File.write(launch_agent_plist, plist_content)
     system "launchctl", "load", launch_agent_plist
