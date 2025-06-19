@@ -1,4 +1,4 @@
-class dmenu < Formula
+class Dmenu < Formula
   desc "Dynamic menu for macOS, inspired by dmenu for X11"
   homepage "https://github.com/acsandmann/dmenu"
 
