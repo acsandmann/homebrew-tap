@@ -10,7 +10,7 @@ class Menuanywhere < Formula
   depends_on :macos
 
   def install
-    system "swiftc", "-framework", "Cocoa", "-O", "menuanywhere.swift", "-o", "menuanywhere"
+    system "make", "menuanywhere"
     bin.install "menuanywhere"
   end
 
