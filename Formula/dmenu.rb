@@ -2,8 +2,8 @@ class Dmenu < Formula
   desc "Dynamic menu for macOS, inspired by dmenu for X11"
   homepage "https://github.com/acsandmann/dmenu"
 
-  url "https://api.github.com/repos/acsandmann/dmenu/tarball/0.0.8"
-  sha256 "1b9b4531567f848613a59fcebb6171b0d60220f7443242b5eef1bf48f3fa1036"
+  url "https://api.github.com/repos/acsandmann/dmenu/tarball/0.0.9"
+  sha256 "3177200adf22d9bf15b901a0f01d665cfc332d564ce702824160f506d43c6153"
   license "MIT"
   head "https://github.com/acsandmann/dmenu.git", branch: "main"
 
