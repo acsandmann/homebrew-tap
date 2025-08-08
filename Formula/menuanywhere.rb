@@ -1,9 +1,9 @@
 class Menuanywhere < Formula
   desc "the macos menu bar at your fingertips"
   homepage "https://github.com/acsandmann/menuanywhere"
-  url "https://api.github.com/repos/acsandmann/menuanywhere/tarball/1.0.4"
-  sha256 "b16fcf0e2df31df5c77245a06ac3ddb2eb0ba71521edc528889913a7f39dd943"
-  version "1.0.4"
+  url "https://api.github.com/repos/acsandmann/menuanywhere/tarball/1.0.5"
+  sha256 "3e85fa32bb56c05642172904a3e6f90630bf210e1e3864cfdbade9d0a04aecdf"
+  version "1.0.5"
   license "MIT"
 
   depends_on xcode: ["12.0", :build]
