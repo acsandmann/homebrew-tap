@@ -13,20 +13,14 @@ class Rift < Formula
   end
 
   def caveats
-    <<~EOS
-      Grant Accessibility permission in:
-        System Settings → Privacy & Security → Accessibility
+      <<~EOS
+        Rift requires Accessibility permissions to control windows.
+        Grant permissions in System Settings > Privacy & Security > Accessibility.
 
-      Then start the agent with:
-        rift-cli service start
-    EOS
+        To copy the example configuration:
+          mkdir -p ~/.config/rift && cp #{pkgshare}/rift.default.toml ~/.config/rift/config.toml
+      EOS
   end
-
-  def post_install
-    system "/usr/bin/xattr", "-rd", "com.apple.quarantine", bin/"rift"
-    system "/usr/bin/xattr", "-rd", "com.apple.quarantine", bin/"rift-cli"
-  end
-
 
   #test do
   #  system "#{bin}/rift", "--version"
