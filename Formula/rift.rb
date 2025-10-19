@@ -1,9 +1,9 @@
 class Rift < Formula
   desc "Tiling window manager for macOS"
   homepage "https://github.com/acsandmann/rift"
-  version "0.0.3"
+  version "0.0.4"
   url "https://github.com/acsandmann/rift/releases/download/v#{version}/rift-universal-macos-#{version}.tar.gz"
-  sha256 "0f3896f124eab990fe937cb849ff534559dfb1aa03d9ed186bf7a1cf45711f2e"
+  sha256 "1c12ac57d1627ea7f81730df21f262c7710115f8b044609f1950a71af8b2e7a2"
   license "Apache-2.0"
   head "https://github.com/acsandmann/rift.git", branch: "main"
 
