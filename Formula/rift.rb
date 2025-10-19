@@ -12,17 +12,32 @@ class Rift < Formula
     bin.install "rift-cli"
   end
 
-  def caveats
-      <<~EOS
-        Rift requires Accessibility permissions to control windows.
-        Grant permissions in System Settings > Privacy & Security > Accessibility.
+  def post_install
+    config_path = "#{Dir.home}/.config/rift/config.toml"
+    return if File.exist?(config_path)
 
-        To copy the example configuration:
-          mkdir -p ~/.config/rift && cp #{pkgshare}/rift.default.toml ~/.config/rift/config.toml
-      EOS
+    config_dir = "#{Dir.home}/.config/rift"
+    FileUtils.mkdir_p(config_dir)
+
+    resource("default-config").stage do
+      FileUtils.cp("rift.default.toml", config_path)
+    end
   end
 
-  #test do
-  #  system "#{bin}/rift", "--version"
-  #end
+  resource "default-config" do
+    url "https://github.com/acsandmann/rift/archive/refs/tags/v#{version}.tar.gz"
+    sha256 "fd284fee51d82486b4273a2f489d518de6ef11c11f99d3ab8a61d148cc325bbd"
+  end
+
+  def caveats
+    <<~EOS
+      Rift requires Accessibility permissions to control windows.
+      Grant permissions in System Settings > Privacy & Security > Accessibility.
+    EOS
+  end
+
+  test do
+    system "#{bin}/rift", "--version"
+  end
 end
+  
