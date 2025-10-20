@@ -25,6 +25,17 @@ class Rift < Formula
       EOS
   end
 
+  service do
+    run "#{opt_bin}/rift"
+    environment_variables PATH: std_service_path_env, LANG: "en_US.UTF-8"
+    keep_alive true
+    process_type :interactive
+    require "etc"
+    user = (Etc.getpwuid(Process.uid).name rescue "unknown")
+    log_path "/tmp/rift_#{user}.out.log"
+    error_log_path "/tmp/rift_#{user}.err.log"
+  end
+
   #test do
   #  system "#{bin}/rift", "--version"
   #end
