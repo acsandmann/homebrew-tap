@@ -10,6 +10,9 @@ class Rift < Formula
   def install
     bin.install "rift"
     bin.install "rift-cli"
+
+    system "codesign", "--force", "-s", "-", "#{bin}/rift"
+    system "codesign", "--force", "-s", "-", "#{bin}/rift-cli"
   end
 
   def caveats
