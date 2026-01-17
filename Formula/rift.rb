@@ -3,7 +3,7 @@ class Rift < Formula
   homepage "https://github.com/acsandmann/rift"
   version "0.3.5"
   url "https://github.com/acsandmann/rift/releases/download/v#{version}/rift-universal-macos-#{version}.tar.gz"
-  sha256 "bf41212fc8fca63902d9b849cfbe9006d253ac70ad1f6d1d426102a7ac41fc76"
+  sha256 "69f068d3f3f5647c15d9dc1ca5a1bf06321aaaad70432057433f4d1d01e6dbcc"
   license "Apache-2.0"
   head "https://github.com/acsandmann/rift.git", branch: "main"
 
