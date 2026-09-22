@@ -10,7 +10,6 @@ class Rift < Formula
   def install
     bin.install "rift"
     bin.install "rift-cli"
-    pkgshare.install "rift.default.toml"
 
     system "codesign", "--force", "-s", "-", "#{bin}/rift"
     system "codesign", "--force", "-s", "-", "#{bin}/rift-cli"
