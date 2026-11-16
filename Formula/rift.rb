@@ -8,9 +8,19 @@ class Rift < Formula
   head "https://github.com/acsandmann/rift.git", branch: "main"
 
   def install
-    bin.install "rift"
+    prefix.install "Rift.app"
+    bin.install_symlink prefix/"Rift.app/Contents/MacOS/rift"
     bin.install "rift-cli"
     pkgshare.install "rift.default.toml"
+  end
+
+  def post_install
+    # Reload an already registered Rift LaunchAgent after its executable moves.
+    # Leave stopped services stopped; brew services manages its own registration.
+    agent = Pathname.new(File.expand_path("~/Library/LaunchAgents/git.acsandmann.rift.plist"))
+    if agent.file? && Kernel.system("/bin/launchctl", "print", "gui/#{Process.uid}/git.acsandmann.rift", out: File::NULL, err: File::NULL)
+      system opt_bin/"rift", "service", "restart"
+    end
   end
 
   def caveats
@@ -24,7 +34,7 @@ class Rift < Formula
   end
 
   service do
-    run "#{opt_bin}/rift"
+    run "#{opt_prefix}/Rift.app/Contents/MacOS/rift"
     environment_variables PATH: std_service_path_env, LANG: "en_US.UTF-8"
     keep_alive true
     process_type :interactive
